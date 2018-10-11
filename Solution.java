@@ -10,6 +10,11 @@ class Solution {
         return findMax(prices, 0, len-1, 1, k);
     }
 
+
+    public int findMax(int prices[], int start, int end){
+        return findMax(prices, start, end, 0, 0);
+    }
+
     public int findMax(int prices[], int start, int end, int flag, int k){
 
         int max = 0;
@@ -36,6 +41,11 @@ class Solution {
             return max;
         }else{
             int res;
+//            if(k - flag == 1){
+//                int res_split_left = findMax(prices, start, i, k-2, k) + findMax(prices, i + 1, end);
+//            }
+//            res =
+//            max = Math.max(max, res);
             for(int i = start; i <= end; i++) {
                 res =  findMax(prices, start, i, flag + 1, k) + findMax(prices, i + 1, end, flag + 1, k);
                 max = Math.max(max, res);
